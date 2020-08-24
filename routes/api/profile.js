@@ -115,8 +115,6 @@ router.post("/", [auth, [
     if(linkedin) profileFields.social.linkedin = linkedin;
     if(instagram) profileFields.social.instagram = instagram;
 
-    console.log(profileFields.social.twitter);
-
     try 
     {
         let profile = await Profile.findOne({user: req.user.id});
@@ -133,6 +131,28 @@ router.post("/", [auth, [
 
         await profile.save();
         res.json(profile);
+    } catch (error) 
+    {
+        console.error(error.message);
+        res.status(500).send("Server Error");
+    }
+});
+
+// @route DELETE api/profile
+// @desc Delete profile, user and posts
+// @access Private
+router.delete("/", auth, async (req, res) => {
+    try 
+    {
+        // @todo - to remove users posts
+
+        // Remove profile
+        await Profile.findOneAndRemove({user: req.user.id});
+
+        // Remove user
+        await User.findOneAndRemove({ _id: req.user.id });
+
+        res.json({message: "User removed"}); 
     } catch (error) 
     {
         console.error(error.message);
