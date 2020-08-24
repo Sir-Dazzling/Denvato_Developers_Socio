@@ -1,12 +1,21 @@
 const express = require("express");
 const router = express.Router();
 
+const User = require("../../models/User");
+
 // @route POST api/users
-// @desc Register User
+// @desc Get users
 // @access Public
-router.post("/", (req, res) => {
-    console.log(req.body);
-    res.send("Register Route")
+router.get("/users", auth, async (req, res) => {
+    try 
+    {
+        const user = await User.findById(req.user.id).select("-password");
+        res.json(user);
+    } catch (error) 
+    {
+        console.error(error.message);
+        res.status(500).send("Server Error");
+    }
 });
 
 module.exports = router;
