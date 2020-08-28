@@ -1,5 +1,6 @@
 const express = require("express");
 const connectDB = require("./config/db");
+const cors = require("cors");
 
 //Initialize app variable with express
 const app = express();
@@ -10,10 +11,15 @@ connectDB();
 //Init Middleware
 app.use(express.json({extended: false}));
 
+var corsOptions = 
+{
+    origin: 'http://localhost:3000'
+}
+
 app.get("/", (req, res) => res.send("API is running"));
 
 // Define routes
-app.use("/api/auth", require("./routes/api/auth"));
+app.use("/api/auth", cors(), require("./routes/api/auth"));
 app.use("/api/profile", require("./routes/api/profile"));
 app.use("/api/posts", require("./routes/api/posts"));
 

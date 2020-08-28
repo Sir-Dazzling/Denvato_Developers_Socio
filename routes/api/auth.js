@@ -72,7 +72,7 @@ router.post("/register/", [
     check("password", "Please enter a password with a minimum of 6 or more characters").isLength({min: 6})
 ], async (req, res) => {
     const errors = validationResult(req);
-
+    console.error(errors);
     // Responding with error code of 400 for bad request
     if(!errors.isEmpty())
     {
@@ -88,7 +88,7 @@ router.post("/register/", [
 
         if(user)
         {
-            return res.status(400).json({errors: [{message: "User already exists"}]});
+            return res.status(400).json({errors: [{msg: "User already exists"}]});
         }
 
         // Getting users gravatar
@@ -126,7 +126,7 @@ router.post("/register/", [
 
     } catch (error) 
     {
-        console.error(error.message);
+        console.error(error.msg);
         res.status(500).send("Server error");
     }
 });
