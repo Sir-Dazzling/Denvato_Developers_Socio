@@ -32,13 +32,13 @@ router.post("/login/", [
 
         if(!user)
         {
-            return res.status(400).json({errors: [{message: "Invalid credentials"}]});
+            return res.status(400).json({errors: [{msg: "Invalid credentials"}]});
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
         if(!isMatch)
         {
-            return res.status(400).json({errors: [{message: "Invalid credentials"}]});
+            return res.status(400).json({errors: [{msg: "Invalid credentials"}]});
         }
 
         // Returning jsonwebtoken with a payload
