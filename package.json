@@ -11,12 +11,14 @@
   "author": "Sir-Dazzling <ottidan20@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "client-install": "npm install --prefix client",
     "start": "node server",
     "server": "nodemon server",
-    "client": "cd client yarn start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "YARN_PRODUCTION=false cd client && yarn && yarn run build client"
+    "heroku-postbuild":
+      "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
+  
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "config": "^3.3.1",
