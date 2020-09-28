@@ -6,8 +6,10 @@ import Moment from 'react-moment';
 
 import {deleteComment} from '../../redux/post/post.actions';
 
-const CommentItem = ({postId, comment: {_id, text, name, avatar, user, date}, auth}) => 
+const CommentItem = ({postId, comment: {_id, text, name, avatar, user, date}, deleteComment, auth}) => 
 {
+  console.log(postId)
+  console.log(_id)
     return (
         <div className="post bg-white p-1 my-1">
           <div>
@@ -27,8 +29,8 @@ const CommentItem = ({postId, comment: {_id, text, name, avatar, user, date}, au
             </p>
 
             {!auth.loading && user === auth.user._id && (
-                <button onClick = {e => deleteComment(postId, _id)} type = "button" className = "btn btn-danger">
-                    <i className="fas fa-times"></i>
+                <button type="button"className="btn btn-danger" onClick = {e => deleteComment(postId, _id)}>
+                  <i className="fas fa-times"></i>
                 </button>
             )}
           </div>
@@ -38,7 +40,7 @@ const CommentItem = ({postId, comment: {_id, text, name, avatar, user, date}, au
 
 CommentItem.propTypes = 
 {
-    postId: PropTypes.string.isRequired,
+    postId: PropTypes.number.isRequired,
     comment: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired,
     deleteComment: PropTypes.func.isRequired
