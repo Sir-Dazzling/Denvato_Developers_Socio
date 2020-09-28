@@ -39,7 +39,6 @@ export const register = ({name, email, password}) => async (dispatch) =>
   };
 
   const body = JSON.stringify({name, email, password});
-  console.log("the body is "+body)
 
   try 
   {
@@ -58,12 +57,9 @@ export const register = ({name, email, password}) => async (dispatch) =>
 
     if(e)
     {
-      // console.error("error is "+errors.msg)
-      e.forEach(error => console.log("error is: "+error.msg));
       e.forEach(error => dispatch(setAlert(error.msg, "danger")));
     }
 
-    // console.error("Error is "+res);
     dispatch({
       type: REGISTER_FAIL
     })

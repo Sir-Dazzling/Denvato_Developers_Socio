@@ -8,8 +8,6 @@ import {deleteComment} from '../../redux/post/post.actions';
 
 const CommentItem = ({postId, comment: {_id, text, name, avatar, user, date}, deleteComment, auth}) => 
 {
-  console.log(postId)
-  console.log(_id)
     return (
         <div className="post bg-white p-1 my-1">
           <div>
