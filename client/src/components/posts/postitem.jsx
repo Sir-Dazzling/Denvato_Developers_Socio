@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import Moment from 'react-moment';
 import {connect} from 'react-redux';
 
-import {deletePost ,addLike, removeLike} from '../../redux/post/post.actions';
+import {deletePost, addLike, removeLike} from '../../redux/post/post.actions';
 
 const PostItem = ({ deletePost, addLike, removeLike, auth, post: {_id, text, name, avatar, user, likes, comments, date}, showActions}) => 
     <div className="post bg-white p-1 my-1">
