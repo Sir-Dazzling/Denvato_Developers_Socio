@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://SirDazzling:shortcuts100@devconnector.1akhf.mongodb.net/<dbname>?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken",
+    "githubClientId": "5813eefa4077e59a3d00",
+    "githubSecret": "e726797b50945dafa61d61e2538fbf9001b491aa"
+}
