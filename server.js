@@ -1,7 +1,7 @@
 const express = require("express");
 const connectDB = require("./config/db");
 const cors = require("cors");
-const path = require("");
+const path = require("path");
 
 //Initialize app variable with express
 const app = express();
