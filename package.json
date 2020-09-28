@@ -13,8 +13,8 @@
   "scripts": {
     "start": "node server",
     "server": "nodemon server",
-    "client": "npm start --prefix client",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false yarn add --prefix client && yarn run build --prefix client"
+    "client": "yarn start --prefix client",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
