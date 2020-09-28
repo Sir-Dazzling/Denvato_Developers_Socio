@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {createProfile, getCurrentProfile} from '../../redux/profile/profile.actions';
 import Spinner from '../layout/spinner';
 
-const EditProfile = ({profile: {profile, loading},createProfile, getCurrentProfile,  history}) => 
+const EditProfile = ({profile: {profile, loading}, createProfile, getCurrentProfile,  history}) => 
 {
     const [FormData, setFormData] = useState({
         company: "",
@@ -59,7 +59,7 @@ const EditProfile = ({profile: {profile, loading},createProfile, getCurrentProfi
             youtube: loading || !profile.social ? "" : profile.social.youtube,
             instagram: loading || !profile.social ? "" : profile.social.instagram
         });
-    }, [loading, getCurrentProfile, profile]);
+    }, [loading, getCurrentProfile]);
 
     const onChange = (e) => setFormData({...FormData, [e.target.name]: e.target.value});
 
