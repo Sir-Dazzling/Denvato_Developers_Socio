@@ -15,7 +15,7 @@
     "server": "nodemon server",
     "client": "cd client yarn start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "YARN_PRODUCTION=false cd client && yarn && yarn build client"
+    "heroku-postbuild": "YARN_PRODUCTION=false cd client && yarn && yarn run build client"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
