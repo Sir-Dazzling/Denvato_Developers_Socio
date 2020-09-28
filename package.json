@@ -1,6 +1,10 @@
 {
   "name": "denvato_developers_socio",
   "version": "1.0.0",
+  "engines": {
+    "node": "12.x",
+    "yarn": "1.x"
+  },
   "description": "Social Network or forum for developers",
   "main": "server.js",
   "repository": "https://github.com/Sir-Dazzling/Denvato_Developers_Socio.git",
